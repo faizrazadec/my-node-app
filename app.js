@@ -1,21 +1,14 @@
 const express = require('express');
 const app = express();
+const port = 3000;
 
-// Middleware to parse JSON
-app.use(express.json());
-
-// Sample route
 app.get('/', (req, res) => {
-    res.send('Welcome to my Node.js application!');
+  res.send('Hello, world!');
 });
 
-// Another example route
-app.get('/api', (req, res) => {
-    res.json({ message: 'This is a sample API endpoint!' });
+// Log message when the server starts
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
 });
 
-// Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+module.exports = app;  // Export app for testing
